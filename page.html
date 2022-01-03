@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+    <script src="js/script.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="dropdown">
+            <a class="dropbtn">Система</a>
+            <div class="dropdown-content">
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <a class="dropbtn">Настройки</a>
+            <div class="dropdown-content">
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <a class="dropbtn">Запустить</a>
+            <div class="dropdown-content">
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <a class="dropbtn">Окно</a>
+            <div class="dropdown-content">
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <a class="dropbtn">Справка</a>
+            <div class="dropdown-content">
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+            </div>
+        </div>
+
+    </header>
+
+    <div class="container">
+
+        <div class="b-info">
+
+            <div class="b-label">
+                <div class="b-table-label">
+                    <div>Перечень неисправностей </div>
+                    <!-- <div id="counter">Количество записей: 0</div> -->
+                </div>
+            </div>
+
+            <div class="b-search">
+                <i class="fa fa-search" aria-hidden="true"></i>
+                <input id="search" type="text" placeholder="Поиск" onkeyup="searchInTable()">
+                <button id="reset">Сброс <i class="fa fa-times" aria-hidden="true"></i></button>
+
+                <i class="fa fa-filter" aria-hidden="true"></i>
+                <input id="date-from" type="datetime-local" placeholder="Время от" onkeyup="">
+                <button id="reset-date-from">X</button>
+
+                <i class="fa fa-sign-in" aria-hidden="true"></i>
+                <input id="date-to" type="datetime-local" placeholder="Время до" onkeyup="">
+                <button id="reset-date-to">X</button>
+
+                <!-- <button id="reset-date">Сброс времени<i class="fa fa-times" aria-hidden="true"></i></button> -->
+            </div>
+
+            <div class="b-table">
+                <table class="table-color">
+                    <thead class="hide">
+                        <tr>
+                            <th class="y-color">Рег.</th>
+                            <th class="y-color">Орг.</th>
+                            <th class="y-color">Место</th>
+                            <th class="y-color">Тип</th>
+                            <th class="y-color">Имя</th>
+                            <th class="y-color">У</th>
+                            <th class="z-color">З</th>
+                            <th class="g-color">Ж</th>
+                            <th class="k-color">К</th>
+                            <th class="c-color">С</th>
+                            <th class="grade-color">Оценка</th>
+                        </tr>
+                    </thead>
+                    <tbody id="inserted-table">
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="button-group">
+                <!-- <button type="button"> <i class="fa fa-check" aria-hidden="true"></i> Подтвердить</button>
+                <button type="button"> <i class="fa fa-check" aria-hidden="true"></i> Подтвердить более</button>
+                <button type="button"> <i class="fa fa-info" aria-hidden="true"></i> Подробности</button>
+                <button type="button"> <i class="fa fa-floppy-o" aria-hidden="true"></i> Сохранить</button>
+                <button type="button"> <i class="fa fa-times" aria-hidden="true"></i> Заблокировать</button>
+                <button type="button"> <i class="fa fa-lock" aria-hidden="true"></i> Управ. блокиров.</button>
+                <button type="button"> <i class="fa fa-times-circle-o" aria-hidden="true"></i> Выключение</button>
+                <button type="button"> <i class="fa fa-lock" aria-hidden="true"></i> Управ. выключ.</button> -->
+                <button id="add" type="button"> <i class="fa fa-plus" aria-hidden="true"></i> Добавить</button>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- 
+    <div class="filter-group">
+
+        <div>
+            <h5>Изобразить станцию</h5>
+            <input type="radio" id="type1" name="types1">
+            <label for="type1">согласно перегона</label><br>
+            <input type="radio" id="type2" name="types1">
+            <label for="type2">согласно района</label><br>
+        </div>
+
+        <div>
+            <h5>Фильтр изоб. согл. подтв.</h5>
+            <input type="radio" id="type3" name="types2">
+            <label for="type3">только неподтв.</label><br>
+            <input type="radio" id="type4" name="types2">
+            <label for="type4">только подтвердил</label><br>
+            <input type="radio" id="type5" name="types2">
+            <label for="type5">все неисправности</label><br>
+        </div>
+
+        <div>
+            <h5>Фильтр изоб. акт. неиспр.</h5>
+            <input type="radio" id="type6" name="types3">
+            <label for="type6">только акт. неиспр.</label><br>
+            <input type="radio" id="type7" name="types3">
+            <label for="type7">все неисправности</label><br>
+        </div>
+
+        <div>
+            <h5>Фильтр изображения</h5>
+            <input type="checkbox" id="type8">
+            <label for="type8">неисправность 1 ст.</label><br>
+            <input type="checkbox" id="type9">
+            <label for="type9">неисправность 2 ст.</label><br>
+            <input type="checkbox" id="type10">
+            <label for="type10">отказ коммуникаций</label><br>
+        </div>
+
+        <div>
+            <h5>Фильтр изоб. согл. устр.</h5>
+            <button type="submit">Неактивные</button>
+        </div>
+
+    </div> -->
+
+</body>
+
+</html>
